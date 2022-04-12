@@ -58,11 +58,19 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+
+        $userLogoutID = Auth::user()->id;
+        
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        // So next time user has to login needs to verify again
+        $successVerifyColumn = DB::table('users')
+        ->where('id', '=', $userLogoutID)
+        ->update(array('verified' => '0'));
 
         return redirect('/');
     }
