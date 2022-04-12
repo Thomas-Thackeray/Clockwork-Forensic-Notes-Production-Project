@@ -18,6 +18,14 @@
   --light-success-colour: #54b970;
   --failure-colour: #f00;
   --border-colour: #d0d7de;
+  --first-color: #4723D9;
+  --header-height: 3rem;
+  --nav-width: 68px;
+  
+  --first-color-light: #AFA5D9;
+  --white-color: #F7F6FB;
+  --normal-font-size: 1rem;
+  --z-fixed: 100
 }
 
 .ML-auto {
@@ -126,32 +134,7 @@ h5 {
 .below-half-width {
     width: 45%;
 }
-/* Side Bar Settings  */
 
-/*.side-menuBar {
-	background-color: var(--primary-colour);
-	min-height: 100%;
-	width: 10%;
-	border-right:  1px solid white;
-	padding: 20px 7px 10px 7px;
-	max-width: 250px;
-}*/
-/*.sidebar-svg {
-	height: 25px;
-	width: 25px;
-	fill: white;
-}
-.sidebar-break-line {
-	display: block;
-	height: 3px;
-	width: 30%;
-	background-color: #484848;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 10px;
-	margin-top: 26px;
-	margin-bottom: 26px;
-}
 nav ul li {
 	list-style: none;
 }
@@ -714,16 +697,6 @@ label {
 
 /* SIDE BAR AND HEADER */
 
-:root {
-    --header-height: 3rem;
-    --nav-width: 68px;
-    --first-color: #4723D9;
-    --first-color-light: #AFA5D9;
-    --white-color: #F7F6FB;
-    --body-font: 'Nunito', sans-serif;
-    --normal-font-size: 1rem;
-    --z-fixed: 100
-}
 
 *,
 ::before,
@@ -1115,3 +1088,24 @@ a {
 #note-collection-holder-body h3 {
     color: var(--first-color);
 }
+
+
+
+
+
+
+
+
+
+/* SCREEN RESOLUTION CHANGES */
+
+@media only screen and (max-width: 600px) {
+    #companyLogo_container {
+        width: 80px;
+        height: 80px;
+    }
+    #companyLogo_container {
+        width: 80px;
+        height: 80px;
+    }
+  }

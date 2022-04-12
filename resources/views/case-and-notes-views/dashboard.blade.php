@@ -25,7 +25,7 @@ $result = json_decode($case, true);
                 $complete_status =  $result[0]['completed'];
                 $notes = DB::table('fornsic_notes')
                 ->where('case_assigned','=', $case->id)
-                ->count();
+                ->count();              
                 ?>
         <div id = "{{$case->id;}}" class = 'indervidual-case-box flex-column'>
             <span class = 'space-between flex-row case-box-title'>
@@ -53,12 +53,22 @@ $result = json_decode($case, true);
                     ->where('case_assigned','=', $case->id)
                     ->latest('updated_at', 'desc')->get();
 
-                    $latestNote = DB::table('users')
-                    ->where('id','=', $latestNote[0]->created_by_id)
-                    ->get();
-                    
+                    if ($latestNote->count()) {
+                        
+                        $latestNote = DB::table('users')
+                        ->where('id','=', $latestNote[0]->created_by_id)
+                        ->get();
+                        
+                        ?>
+                        <li>Last Accessed By: <?php echo $latestNote[0]->name; ?></li>
+                        <?php
+                        
+                    }
+                    else {
+                        echo "HELLO WORLD";
+                    }
                     ?>
-                    <li>Last Accessed By: <?php echo $latestNote[0]->name; ?></li>
+
                 </ul>
 
                 <div class = 'full-width special-stats align-center justify-content-center flex-row'>
