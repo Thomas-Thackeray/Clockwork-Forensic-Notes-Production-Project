@@ -17,8 +17,18 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(UserRolesSeeder::class);
-        \App\Models\company::factory(10)->create();
+        // \App\Models\company::factory(10)->create();
 
+        DB::table('companies')->insert([
+            'company_name' => 'LBU Forensic Investigators',
+            'contact_number' => '01132874325',
+            'email' => 'lbu_forensic_investigators@gmail.com',
+            'company_description' => 'A digital forensic company based out of Leeds Beckett University.',
+            'address_line_1' => 'Headingley Campus, City, Leeds',
+            'address_line_2' => 'LS16 5LF
+            ',
+        ]);
+        
         DB::table('users')->insert([
             'name' => 'Thomas Thackeray',
             'email' => 'thomasthackeray0@gmail.com',
