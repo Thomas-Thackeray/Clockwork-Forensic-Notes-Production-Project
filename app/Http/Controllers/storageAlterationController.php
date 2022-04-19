@@ -76,6 +76,9 @@ class storageAlterationController extends Controller
             'audio2_input' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
             'audio3_input' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
 
+            'start_time' => 'required',
+            'start_date' => 'required',
+
         ]);
 
         $newNote = new fornsic_notes; 
@@ -99,6 +102,9 @@ class storageAlterationController extends Controller
 
         $newNote->evidence_damage = 'N/S'; 
         $newNote->further_details= 'N/S';   
+
+        $newNote->note_start_Time=$request->start_time;
+        $newNote->note_start_Date=$request->start_date;
 
         if($request->file('image1_input')!=null){    
             $imagename = $request->file('image1_input')->store('public/storage/images');
@@ -137,6 +143,9 @@ class storageAlterationController extends Controller
                                 $request->signature_input .
                                 $request->latitude .
                                 $request->longitude .
+
+                                $request->start_time .
+                                $request->start_date .
 
                                 $request->file('image1_input') .
                                 $request->file('image2_input') .
