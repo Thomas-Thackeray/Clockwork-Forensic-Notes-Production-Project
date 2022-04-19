@@ -18,8 +18,6 @@ class CreateFornsicNotesTable extends Migration
 
             $table->string('title');
 
-            $table->boolean('bookmark')->default('0');
-            $table->boolean('important')->default('0');
             $table->boolean('toolUsed')->default('0');
             $table->boolean('evidenceFound')->default('0');
 
