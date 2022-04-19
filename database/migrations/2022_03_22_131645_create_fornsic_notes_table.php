@@ -100,7 +100,8 @@ class CreateFornsicNotesTable extends Migration
             
 
             $table->string('signature')->default('');
-                     
+            
+         
             $table->timestamps();
         });
     }

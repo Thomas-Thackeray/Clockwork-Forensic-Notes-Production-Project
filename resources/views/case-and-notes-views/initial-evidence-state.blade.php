@@ -242,6 +242,9 @@
         <input id = 'latitude_input' type = 'hidden' name = 'latitude' value = ''>
         <input id = 'longitude_input' type = 'hidden' name = 'longitude' value = ''>
 
+        <input id = 'start_time' type = 'hidden' name = 'start_time' value = '<?php echo date('Y-m-d'); ?>'>
+        <input id = 'start_date' type = 'hidden' name = 'start_date' value = '<?php echo date('h:i:s'); ?>'>
+
         </form>
     </section>
 
