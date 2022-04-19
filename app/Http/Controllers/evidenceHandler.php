@@ -146,16 +146,35 @@ class evidenceHandler extends Controller
     }
 
     public function get_hex_content($caseName, Request $request)
+    
     {
-        // $imagelink = file_get_contents('file:///F:/Wat2020/crud/images/mug.jpg');
 
-        $url = Storage::url('aVBO5Y9kTsBCftVhxX6ufR5AkgDORJoDjcCHPNIi.png');
-        echo $url;
-        echo bin2hex($url);
+        $current_user_company_id = auth()->user()->company_id;
 
+        $companie = DB::table('companies')
+        ->where('id','=', $current_user_company_id)
+        ->get();
+        $result = json_decode($companie, true);
 
-        // $imagelink = file_get_contents('https://cdn.codespeedy.com/wp-content/themes/CodeSpeedy-March-2019/img/CodeSpeedy-Logo.png');
-        // echo bin2hex($imagelink);
+        $companie_name =  $result[0]['company_name'];
+        
+        $currentCase = DB::table('fornsic_cases')
+        ->where('case_name','=', $caseName)
+        ->get();
+
+        $result2 = json_decode($currentCase, true);
+
+        $caseID =  $result2[0]['id'];
+
+        if (isset($_POST['submitImage'])){
+
+            if (!empty($request->imageUpload)) {
+
+                $imagename = $request->file('imageUpload')->store('images');
+
+                return View::make('components.file_hex_viewer', ['caseID' => $caseID, 'caseName' => $caseName, 'companie_name' => $companie_name, 'imagename' => $imagename]);                
+            }
+        }            
     }
 
     /**

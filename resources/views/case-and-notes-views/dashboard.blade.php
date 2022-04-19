@@ -12,7 +12,6 @@ $case = DB::table('fornsic_cases')
 ->get();
 $result = json_decode($case, true);
 
-//  SOMETHING WRONH HERE ONLY SELECT 1 RECORD NOT ALL IF REMOVE THE FIRST RECORD THEN LOCKS THE SECOND WHICH IS CORRECT
 ?>
 
 <x-app-layout>

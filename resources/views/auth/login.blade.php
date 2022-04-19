@@ -19,34 +19,35 @@
 			<figure id = 'companyLogo_container'><img src="<?php echo url('storage/storage/images/logo.png'); ?>" alt=""> </figure>
 			<h2>LBU Forensic Investigators</h2>
 
-            <!-- GO TO A CONTROLLER WHICH IF EMAIL GETS VERIFIED GO TO LOGIN ROUTE -->
-
+            <!-- When the submit button is clicked handle the form using the login route -->
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-     
-                <!-- Username -->
+                <!-- Username Field-->
                 <div class = 'login_inputGrouping'>
-                    <i class="login_icon fa fa-user" style="font-size:23px"></i>
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+
+                    <i class="login_icon fa fa-user" style="font-size:23px"></i> 
+
+                    <x-input id="email" class="block mt-1 w-full"
+                                    type="email"
+                                    name="email"
+                                    :value="old('email')"
+                                    required autofocus />
+
                     <span class = 'login_usernameValidation'></span>
                 </div>
-
-                <!-- <div class = 'mt-4'>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div> -->
-
-                <!-- Password -->
+                <!-- Password Field -->
                 <div class = 'login_inputGrouping'>
+
                     <i class="login_icon fa fa-lock" style="font-size:23px"></i>
+
                     <x-input id="password" class="block mt-1 w-full"
                                     type="password"
                                     name="password"
                                     required autocomplete="current-password" />
-                    <span class = 'login_usernameValidation'></span>
-					<p id="Warning">WARNING! Caps lock is ON.</p>
 
+                    <span class = 'login_usernameValidation'></span>
+
+					<p id="Warning">WARNING! Caps lock is ON.</p>
                 </div>
 
                 <div class = 'login_inputGrouping'>

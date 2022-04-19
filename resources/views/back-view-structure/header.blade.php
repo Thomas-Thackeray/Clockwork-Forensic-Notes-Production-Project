@@ -8,7 +8,8 @@
         </svg>
     </div>
     <div class="header_img"> 
-        <img src="<?php echo url('storage/storage/images/logo.png'); ?>" alt=""> 
+        <img src="{{ asset('storage/images/logo.png') }}" alt="" title="">
+
     </div>
 </header>
 

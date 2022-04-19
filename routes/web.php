@@ -55,8 +55,8 @@ Route::post('/{companie_name}/case/create-case', [caseController::class, 'store'
 
 Route::get('/case/{caseName}/notes/table-view', [evidenceHandler::class, 'table_view_index'])->name('show_notes_table_view')->middleware('auth', 'checkLoginVerified: 1');
 Route::get('/case/{caseName}/notes/timeline-view', [evidenceHandler::class, 'timeline_view_index'])->name('show_notes_timeline_view')->middleware('auth', 'checkLoginVerified: 1');
-Route::get('/case/{caseName}/hex-interpreter', [evidenceHandler::class, 'hex_interpreter'])->name('show_file_hex')->middleware('auth', 'checkLoginVerified: 1');
 
+Route::get('/case/{caseName}/hex-interpreter', [evidenceHandler::class, 'hex_interpreter'])->name('show_file_hex')->middleware('auth', 'checkLoginVerified: 1');
 Route::post('/case/{caseName}/hex-interpreter/get-content', [evidenceHandler::class, 'get_hex_content'])->name('show_file_hex2')->middleware('auth', 'checkLoginVerified: 1');
 
 Route::get('/case/{caseName}/create-pdf', [pdfBuilderController::class, 'createPDF'])->name('create_pdf')->middleware('auth', 'checkLoginVerified: 1');

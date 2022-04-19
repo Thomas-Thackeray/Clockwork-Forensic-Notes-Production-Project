@@ -25,7 +25,7 @@ foreach ($case as $case) {
             <a href="#" class="nav_logo">
 
             <div class="header_img"> 
-                <img src="<?php echo url('storage/storage/images/logo.png'); ?>" alt=""> 
+                <img src="{{ asset('storage/images/logo.png') }}" alt="" title="">
                 
                 
             </div>

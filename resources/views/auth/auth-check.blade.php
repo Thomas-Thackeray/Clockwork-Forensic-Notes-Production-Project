@@ -15,7 +15,7 @@
 		<section id = 'form_wrapper'>
 
 			<figure id = 'companyLogo_container'><img src="<?php echo url('storage/storage/images/logo.png'); ?>" alt=""> </figure>
-			<h2>LBU Forensic Investigators</h2>
+			<h2>Two-Factor Authentication Code</h2>
 
             <!-- GO TO A CONTROLLER WHICH IF EMAIL GETS VERIFIED GO TO LOGIN ROUTE -->
 

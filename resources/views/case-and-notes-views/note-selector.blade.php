@@ -118,4 +118,8 @@ use Illuminate\Support\Facades\Auth;
         visibility:hidden;
     }
 }
+.alert {
+    color: green;
+    font-size: 11px;
+}
 </style>
