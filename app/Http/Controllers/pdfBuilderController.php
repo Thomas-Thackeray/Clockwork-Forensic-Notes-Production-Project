@@ -41,7 +41,7 @@ class pdfBuilderController extends Controller
 
         // return View::make('case-and-notes-views.notes-table-view', ['caseName' => $caseName, 'caseID' => $caseID, 'companie_name' => $companie_name]);
 
-
+        
         $data = [
             'CaseName' => $caseName,
             'CaseID' => $caseID,
@@ -50,9 +50,34 @@ class pdfBuilderController extends Controller
           
         $pdf = PDF::loadView('components.case-notes-pdf', $data);
 
-      
-
         return $pdf->download('ContemporaneousNotes.pdf');
+        
+      }
+
+      public function showCaseImages($caseName)
+      {
+        $current_user_company_id = auth()->user()->company_id;
+
+        $companie = DB::table('companies')
+        ->where('id','=', $current_user_company_id)
+        ->get();
+        $result = json_decode($companie, true);
+
+        $companie_name =  $result[0]['company_name'];
+        
+        $currentCase = DB::table('fornsic_cases')
+        ->where('case_name','=', $caseName)
+        ->get();
+
+
+        $result2 = json_decode($currentCase, true);
+        $caseID =  $result2[0]['id'];
+
+        return View::make('components.case-images', ['case_name' => $caseName, 'companie_name' => $companie_name, 'caseID' => $caseID]);
+
+        
+        
+          
       }
 
     /**

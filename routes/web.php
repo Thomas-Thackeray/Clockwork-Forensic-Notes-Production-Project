@@ -61,6 +61,9 @@ Route::post('/case/{caseName}/hex-interpreter/get-content', [evidenceHandler::cl
 
 Route::get('/case/{caseName}/create-pdf', [pdfBuilderController::class, 'createPDF'])->name('create_pdf')->middleware('auth', 'checkLoginVerified: 1');
 
+Route::get('/case/{caseName}/case-images', [pdfBuilderController::class, 'showCaseImages'])->name('showCaseImages')->middleware('auth', 'checkLoginVerified: 1');
+
+
 Route::get('/case/{case_name}/case-closed/view-notes', [evidenceHandler::class, 'final_Notes_View'])->name('case-closed-view-notes')->middleware('auth', 'checkLoginVerified: 1');
 
 Route::get('/send-auth-token', [twoFactorAuth::class, 'index'])->name('create_auth_code');

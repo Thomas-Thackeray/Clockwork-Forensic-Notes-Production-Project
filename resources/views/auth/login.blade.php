@@ -16,7 +16,7 @@
 
 		<section id = 'form_wrapper'>
 
-			<figure id = 'companyLogo_container'><img src="<?php echo url('storage/storage/images/logo.png'); ?>" alt=""> </figure>
+			<figure id = 'companyLogo_container'><img src="{{ asset('storage/images/logo.png') }}" alt=""> </figure>
 			<h2>LBU Forensic Investigators</h2>
 
             <!-- When the submit button is clicked handle the form using the login route -->

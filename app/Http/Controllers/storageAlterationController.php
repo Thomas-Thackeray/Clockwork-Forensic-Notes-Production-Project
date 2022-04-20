@@ -107,29 +107,29 @@ class storageAlterationController extends Controller
         $newNote->note_start_Date=$request->start_date;
 
         if($request->file('image1_input')!=null){    
-            $imagename = $request->file('image1_input')->store('public/storage/images');
-            $newNote->image_1 = str_replace("public/storage/images/", "", $imagename);
+            $imagename = $request->file('image1_input')->store('images');
+            $newNote->image_1 = str_replace("images/", "", $imagename);
         }    
         if($request->file('image2_input')!=null){    
-            $imagename = $request->file('image2_input')->store('public/storage/images');
-            $newNote->image_2 = str_replace("public/storage/images/", "", $imagename);
+            $imagename = $request->file('image2_input')->store('images');
+            $newNote->image_2 = str_replace("images/", "", $imagename);
         }    
         if($request->file('image3_input')!=null){    
-            $imagename = $request->file('image3_input')->store('public/storage/images');
-            $newNote->image_3 = str_replace("public/storage/images/", "", $imagename);
+            $imagename = $request->file('image3_input')->store('images');
+            $newNote->image_3 = str_replace("images/", "", $imagename);
         }   
  
         if($request->file('audio1_input')!=null){    
-            $imagename = $request->file('image1_input')->store('public/storage/images');
-            $newNote->audio_1 = str_replace("public/storage/images/", "", $imagename);
+            $imagename = $request->file('image1_input')->store('images');
+            $newNote->audio_1 = str_replace("images/", "", $imagename);
         }    
         if($request->file('audio2_input')!=null){    
-            $imagename = $request->file('image2_input')->store('public/storage/images');
-            $newNote->audio_2 = str_replace("public/storage/images/", "", $imagename);
+            $imagename = $request->file('image2_input')->store('images');
+            $newNote->audio_2 = str_replace("images/", "", $imagename);
         }    
         if($request->file('audio3_input')!=null){    
-            $imagename = $request->file('image3_input')->store('public/storage/images');
-            $newNote->audio_3 = str_replace("public/storage/images/", "", $imagename);
+            $imagename = $request->file('image3_input')->store('images');
+            $newNote->audio_3 = str_replace("images/", "", $imagename);
         }   
 
         $salt = 'LeedsBeckettUniversityHeadingly'; 
