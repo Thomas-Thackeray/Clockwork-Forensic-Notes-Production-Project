@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hi</title>
+    <title>Contemporaneous Notes</title>
 </head>
 <body class = 'flex-row'>
 
@@ -70,6 +70,24 @@ echo date("D/M/Y");?> </p>
                         <tr>
                             <th>MD5 Hash: <?php echo $json_result['md5_hash'];?></th>
                             <th>SHA-1 Hash: <?php echo $json_result['sha1_hash']; ?></th>
+                        </tr>
+                    </table>
+
+                    <table class = 'single_col_table_hash'>
+                        <tr>
+                            <th>Longitude: <?php echo $json_result['longitude'];?></th>
+                            <th>Latitude: <?php echo $json_result['latitude']; ?></th>
+
+                            <?php
+                            $image_count = 0;
+                            if(!empty($json_result['image_1'])) {$image_count = $image_count + 1;}
+                            if(!empty($json_result['image_2'])) {$image_count = $image_count + 1;}
+                            if(!empty($json_result['image_3'])) {$image_count = $image_count + 1;}
+
+                            ?>
+
+                                                        
+                            <th>Images: <?php echo $image_count; if($image_count > 0){echo " (See Case Image Page)";} ?></th>
                         </tr>
                     </table>
 

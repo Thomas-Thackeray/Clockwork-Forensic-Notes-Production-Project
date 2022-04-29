@@ -29,6 +29,12 @@ class CreateFornsicCasesTable extends Migration
             $table->unsignedBigInteger('created_by')->default('0');
             $table->foreign('created_by')->references('id')->on('users');
 
+            $table->string('longitude')->default('');
+            $table->string('latitude')->default('');
+            
+            $table->string('note_start_Time')->default('');
+            $table->string('note_start_Date')->default('');            
+
             $table->timestamps();
 
             $table->string('case_hash')->unique();

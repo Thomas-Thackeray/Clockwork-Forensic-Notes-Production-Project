@@ -19,13 +19,14 @@ class twoFactorAuth extends Controller
     {
 
         $code = Auth::user()->two_factor_code;
+        $email = Auth::user()->email;
 
         $details = [
             'title' => 'Two Factor Authentication',
             'body' => $code
         ];
        
-        \Mail::to('thomasthackeray0@gmail.com')->send(new \App\Mail\email_constructor($details));
+        \Mail::to($email)->send(new \App\Mail\email_constructor($details));
 
         return View::make('auth.auth-check');
     }

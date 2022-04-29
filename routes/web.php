@@ -27,7 +27,13 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
-Route::get('/dashboard', function () { return view('/case-and-notes-views.dashboard');})->name('dashboard')->middleware('auth', 'checkLoginVerified: 1');
+
+
+
+
+// IF TWO-FACTOR AUTHENTICATION IS DISABLED REMOVE "checkLoginVerified" middleware
+Route::get('/dashboard', function () { return view('/case-and-notes-views.dashboard');})
+->name('dashboard')->middleware('auth', 'checkLoginVerified: 1');
 
 
 Route::get('/case/{caseName}', [caseController::class, 'index'])->name('showNotes')->middleware('auth', 'checkLoginVerified: 1');

@@ -7,8 +7,6 @@
 
     <?php echo 'Your Code: ' . $details['body']; ?>
 
-    <h1>hjdsjhd</h1>
-    <p>My first paragraph.</p>
 
 </body>
 </html>

@@ -11,12 +11,12 @@
 </section>
 
     <section id = 'mainContent-container' class = 'flex-column'>
-
+<?php echo hjdhgdgh ?>
     <section class = 'flex-column full-width'>
                 <form enctype='multipart/form-data' action = '/case/{{$caseName}}/hex-interpreter/get-content' method = 'POST'>
                 @csrf
                     <input type="file" name="imageUpload">
-                    <input type="submit" name="submitImage" value = 'Get Metadata'>
+                    <input type="submit" name="submitImage" value = 'Get Hex'>
                 </form>
 
                 <section class = 'full-width justify-content-center align-center'>

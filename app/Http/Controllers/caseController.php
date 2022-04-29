@@ -86,20 +86,21 @@ class caseController extends Controller
      */
     public function store(Request $request)
     {
+        // Getting The Company ID
         $companyID = $request->companyID;
 
-        // $validated = $request->validate([
+        // Validating the users input
+        $validated = $request->validate([
 
-        //     'caseName_input' => 'required|max:40',
-        //     'caseDescription_input' => 'required|max:255',
-        //     'CaseID' => 'required|max:10',
-        //     'signature_input' => 'required|max:30',
-        //     'companieName' => 'required|max:40',
+            'caseName_input' => 'required|max:40',
+            'caseDescription_input' => 'required|max:255',
+            'signature_input' => 'required|max:30',
+            'companieName' => 'required|max:40',
 
-        // ]);
-
+        ]);
+        // Create a new case instance
         $newCase = new fornsic_cases;
-
+        // Add the users input to the new case
         $newCase->case_name=$request->caseName_input;
         $newCase->case_description=$request->caseDescription_input;
         $newCase->completed='0';
@@ -108,20 +109,19 @@ class caseController extends Controller
         $newCase->created_by=Auth::user()->id;
         $newCase->priority='0';
         
-        // $newNote->latitude=$request->latitude;
-        // $newNote->longitude=$request->longitude;
-
-        $newCase->case_hash='No Hash Set';
+        $newCase->latitude=$request->latitude;
+        $newCase->longitude=$request->longitude;
 
         $salt = 'LeedsBeckettUniversityHeadingly'; 
 
         $collatedData_string = $request->caseName_input . 
                                 $request->caseDescription_input .
                                 '0' .
-
+                                $companyID .
+                                Auth::user()->id .
                                 $request->signature_input .
-                                // $request->latitude .
-                                // $request->longitude .
+                                $request->latitude .
+                                $request->longitude .
 
                                 $salt;
 

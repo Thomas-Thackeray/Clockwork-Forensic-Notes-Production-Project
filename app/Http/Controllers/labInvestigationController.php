@@ -54,17 +54,20 @@ class labInvestigationController extends Controller
      */
     public function store(Request $request)
     {
+        // get the current cases information
         $case = DB::table('fornsic_cases')->where('case_name','=', $request->CaseName)->get(); 
         $result = json_decode($case, true);
         $caseID =  $result[0]['id'];
 
+        //  validate the data that has been submitted inside the form
         $validated = $request->validate([
             'noteTitle_input' => 'required|max:30',
             'interactedEvidence_input' => 'required|max:30',
             'actionType_input' => 'required|max:30',
             'outcome_input' => 'required|max:30',
-            'actionDescription_input' => 'required|max:255',
-            'actionResult_input' => 'required|max:255',
+            // Increased from 255
+            'actionDescription_input' => 'required|max:555',
+            'actionResult_input' => 'required|max:555',
             'toolUsedName_input' => 'required|max:30',
             'toolUsedVersion_input' => 'required|max:20',
 
@@ -80,11 +83,12 @@ class labInvestigationController extends Controller
 
             'start_time' => 'required',
             'start_date' => 'required',
-
         ]);
 
+        // Created a new instance of a note
         $newNote = new fornsic_notes; 
-
+        // The following lines stores the data submitted by the user with there
+        // corrosponding columns wihin the "forensic_notes" table
         $newNote->title=$request->noteTitle_input;
         $newNote->evidence_ref=$request->interactedEvidence_input;
         $newNote->action_type=$request->actionType_input;
@@ -93,24 +97,19 @@ class labInvestigationController extends Controller
         $newNote->further_details=$request->actionResult_input;
         $newNote->tool_name=$request->toolUsedName_input;
         $newNote->tool_version=$request->toolUsedVersion_input;
-
-
-        $newNote->signature=$request->signature_input;
-        
+        $newNote->signature=$request->signature_input;      
         $newNote->latitude=$request->latitude;
         $newNote->longitude=$request->longitude;
-        
-
+        // Each note is given a note type which is used 
+        // to identify the category of note later on
         $newNote->note_type='Lab Investigation'; 
         $newNote->created_by_id=Auth::user()->id;
         $newNote->case_assigned=$caseID;
-
         $newNote->evidence_damage = 'N/S'; 
         $newNote->further_details= 'N/S';   
-
         $newNote->note_start_Time=$request->start_time;
         $newNote->note_start_Date=$request->start_date;
-
+        // Storing the media files
         if($request->file('image1_input')!=null){    
             $imagename = $request->file('image1_input')->store('images');
             $newNote->image_1 = str_replace("images/", "", $imagename);
@@ -137,39 +136,18 @@ class labInvestigationController extends Controller
             $newNote->audio_3 = str_replace("images/", "", $imagename);
         }  
 
-        $salt = 'LeedsBeckettUniversityHeadingly'; 
-        $collatedData_string = $request->noteTitle_input . 
-                                $request->interactedEvidence_input .
-                                $request->actionType_input .
-                                $request->outcome_input .
-                                $request->actionDescription_input .
-                                $request->actionResult_input .
-                                $request->toolUsedName_input .
-                                $request->toolUsedVersion_input .
+        // CHANGE THIS ON EVERY PAGE CLEANS UP CODE
+        $hash_md5 = md5($newNote);
+        $hash_sha1 = sha1($newNote);
 
-                                $request->signature_input .
-                                $request->latitude .
-                                $request->longitude .
-
-                                $request->start_time .
-                                $request->start_date .
-
-                                $request->file('image1_input') .
-                                $request->file('image2_input') .
-                                $request->file('image3_input') .
-                                $request->file('audio1_input') .
-                                $request->file('audio2_input') .
-                                $request->file('audio3_input') .
-                                $salt;
-
-        $newNote->md5_hash= md5($collatedData_string); 
-        $newNote->sha1_hash= sha1($collatedData_string);        
+        $newNote->md5_hash = $hash_md5;
+        $newNote->sha1_hash= $hash_sha1;
 
         $newNote->save();  
 
-
-
-        return redirect('case/' . $request->CaseName)->with('status', '*** The Note Was Successfully Created - Date-TimeStamps: ' . date("Y/m/d") . ' ' . date("h:i:sa") . ' ***');;
+        return redirect('case/' . $request->CaseName)
+        ->with('status', '*** The Note Was Successfully Created - Date-TimeStamps: ' . 
+        date("Y/m/d") . ' ' . date("h:i:sa") . ' ***');;
     }
 
     /**

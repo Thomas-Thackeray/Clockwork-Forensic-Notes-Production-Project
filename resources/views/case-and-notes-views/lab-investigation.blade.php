@@ -10,8 +10,8 @@
 
     <section id = 'mainContent-container' class = 'flex-row flex-wrap'>
 
-        <form action = '/case/{{$case_name}}/submit-note/lab-investigation' method = 'POST' enctype='multipart/form-data' class = 'flex-row flex-wrap full-width'>
-
+        <form action = '/case/{{$case_name}}/submit-note/lab-investigation' 
+        method = 'POST' enctype='multipart/form-data' class = 'flex-row flex-wrap full-width'>
         @csrf
 
         <input type = 'hidden' name = 'CaseName' value = '{{$case_name}}'>
@@ -220,26 +220,38 @@
     </section>
     <script>
 
+// FOR LATER WORKS ADD CLIENT DATE AND TIME NOT SERVER
+// var now = new Date();
+// alert(now);
+
+// Get the elements where the longitude and latitude require displaying
 let latText = document.getElementById("latitude");
 let longText = document.getElementById("longitude");
 
+// When the page is loaded run this function
 $( document ).ready(function() {
+    // Use the geolocation method to get the current longitude and latitude of device
     navigator.geolocation.getCurrentPosition(function(position) {
+        // store the latitude inside the lat variable
         let lat = position.coords.latitude;
+        // Display the variable inside the element with the id latitude_show
         $('#latitude_show').text(lat);
+        // Store the longitude inside the long variable
         let long = position.coords.longitude;
+        // Display the variable inside the element with the id longitude_show
         $('#longitude_show').text(long);
 
+        // To allow the submission of these variable they must be stored inside the value
+        // of a input field.
         var s = document.getElementById("longitude_input");
         s.value = long;
 
         var s = document.getElementById("latitude_input");
         s.value = lat;
 
+        // Adds north and west letters to the variables        
         latText.innerText = lat.toFixed(2) + 'N';
         longText.innerText = long.toFixed(2) + 'W';
-
-
     });
 });
 

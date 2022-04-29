@@ -88,29 +88,6 @@ class evidenceHandler extends Controller
         return View::make('case-and-notes-views.notes-timeline-view', ['caseName' => $caseName, 'caseID' => $caseID, 'companie_name' => $companie_name]);          
     }
 
-    public function hex_interpreter($caseName)
-    {
-
-        $current_user_company_id = auth()->user()->company_id;
-
-        $companie = DB::table('companies')
-        ->where('id','=', $current_user_company_id)
-        ->get();
-        $result = json_decode($companie, true);
-
-        $companie_name =  $result[0]['company_name'];
-        
-        $currentCase = DB::table('fornsic_cases')
-        ->where('case_name','=', $caseName)
-        ->get();
-
-
-        $result2 = json_decode($currentCase, true);
-        $caseID =  $result2[0]['id'];
-        view()->share('caseName', $caseName);
-        return View::make('components.file_hex_viewer', ['caseName' => $caseName, 'caseID' => $caseID, 'companie_name' => $companie_name]);
-        
-    }
 
     public function final_Notes_View($caseName) {
 
@@ -145,6 +122,31 @@ class evidenceHandler extends Controller
 
     }
 
+    public function hex_interpreter($caseName)
+    {
+
+        $current_user_company_id = auth()->user()->company_id;
+
+        $companie = DB::table('companies')
+        ->where('id','=', $current_user_company_id)
+        ->get();
+        $result = json_decode($companie, true);
+
+        $companie_name =  $result[0]['company_name'];
+        
+        $currentCase = DB::table('fornsic_cases')
+        ->where('case_name','=', $caseName)
+        ->get();
+
+
+        $result2 = json_decode($currentCase, true);
+        $caseID =  $result2[0]['id'];
+        view()->share('caseName', $caseName);
+        return View::make('components.file_hex_viewer', ['caseName' => $caseName, 'caseID' => $caseID, 'companie_name' => $companie_name]);
+        
+    }
+
+    
     public function get_hex_content($caseName, Request $request)
     
     {

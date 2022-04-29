@@ -38,11 +38,13 @@ use Illuminate\Support\Facades\Auth;
             <li class = 'create-buton'><a class = 'flex-column justify-content-center align-center' href = '/case/{{$case_name}}/new-note/bag-and-tag'>Create Note</a></li>
         </section>
         @endif
-
+        <!-- The Initial crime scene report note container -->
         <section class = 'flex-column form-wrapper white-box note-type text-center justify-content-center align-center'>
             <h2>Initial Crime Scene Report</h2>
-            <p class = ''>Just Arrived At The Crime Scene, record what you can see as possible evidence. Phone's, Computers, Tablets, Laptops, Satnavs etc.</p>
-            <li class = 'create-buton'><a class = 'flex-column justify-content-center align-center' href = '/case/{{$case_name}}/new-note/evidence-identification'>Create Note</a></li>
+            <p class = ''>Just Arrived At The Crime Scene, record what you can see as possible 
+            evidence. Phone's, Computers, Tablets, Laptops, Satnavs etc.</p>
+            <li class = 'create-buton'><a class = 'flex-column justify-content-center align-center' 
+            href = '/case/{{$case_name}}/new-note/evidence-identification'>Create Note</a></li>
         </section>
 
         <section class = 'flex-column form-wrapper white-box note-type text-center justify-content-center align-center'>
