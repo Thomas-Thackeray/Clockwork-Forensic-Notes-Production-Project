@@ -176,6 +176,10 @@ class evidenceHandler extends Controller
 
                 return View::make('components.file_hex_viewer', ['caseID' => $caseID, 'caseName' => $caseName, 'companie_name' => $companie_name, 'imagename' => $imagename]);                
             }
+            else {
+                return View::make('components.file_hex_viewer', ['caseID' => $caseID, 'caseName' => $caseName, 'companie_name' => $companie_name]);
+
+            }
         }            
     }
 

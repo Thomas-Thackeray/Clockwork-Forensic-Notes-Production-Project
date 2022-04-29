@@ -128,7 +128,7 @@ echo date("D/M/Y");?> </p>
                             <?php if($json_result['device_7_Name'] != 'N/S'){echo '<li>' . $json_result['device_7_Name'] . '</li>'; } ?>
                             <?php if($json_result['device_8_Name'] != 'N/S'){echo '<li>' . $json_result['device_8_Name'] . '</li>'; } ?>
                             <?php if($json_result['device_9_Name'] != 'N/S'){echo '<li>' . $json_result['device_9_Name'] . '</li>'; } ?>
-                            <?php if($json_result['device_10_Name'] != 'N/S'){echo '<li>' . $json_result['device10_Name'] . '</li>'; } ?>
+                            
                         </ul>
                         
                     <?php

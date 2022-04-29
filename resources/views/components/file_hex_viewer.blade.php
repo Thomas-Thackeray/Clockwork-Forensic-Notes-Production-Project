@@ -11,7 +11,7 @@
 </section>
 
     <section id = 'mainContent-container' class = 'flex-column'>
-<?php echo hjdhgdgh ?>
+
     <section class = 'flex-column full-width'>
                 <form enctype='multipart/form-data' action = '/case/{{$caseName}}/hex-interpreter/get-content' method = 'POST'>
                 @csrf
@@ -81,6 +81,9 @@
 								$hex_view_display_list .= "</p>";
 
                     } 
+                    else {
+                        echo "No document Submitted";
+                    }
                     ?>
                     
                 </section>

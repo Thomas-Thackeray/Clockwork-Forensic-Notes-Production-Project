@@ -85,8 +85,8 @@ $result = json_decode($case, true);
                         </div>
                         @if($case->completed == '1') 
                         <section class = 'flex-row space-between MT-10' >                
-                        <li class = 'button-transition below-half-width open-link'><a class = 'flex-column justify-content-center align-center' href = '/case/{{$case->case_name}}/create-pdf'>Create PDF</a></li>
-                        <li class = 'button-transition below-half-width open-link'><a class = 'flex-column justify-content-center align-center' href = '/case/{{$case->case_name}}/case-closed/view-notes'>View Case</a></li>
+                        <li class = 'button-transition full-width open-link'><a class = 'flex-column justify-content-center align-center' href = '/case/{{$case->case_name}}/create-pdf'>Create PDF</a></li>
+                        <!-- <li class = 'button-transition below-half-width open-link'><a class = 'flex-column justify-content-center align-center' href = '/case/{{$case->case_name}}/case-closed/view-notes'>View Case</a></li> -->
                         @else                        
                         <li class = 'button-transition full-width open-link'>
                         <a class = 'flex-column justify-content-center align-center' 

@@ -68,7 +68,7 @@ class bagAndTagController extends Controller
             'evidenceDescription_input' => 'required|max:255',
             'manufacturer_input' => 'max:35',
             'model_input' => 'max:35',
-            'serialNumber_input' => 'max:30',
+            'serialNumber_input' => 'required|max:30',
             'uniqueId_input' => 'required|max:30',
             'courtExhibitNumber_input' => 'required|max:30',
             'storageReference_input' => 'required|max:30',
