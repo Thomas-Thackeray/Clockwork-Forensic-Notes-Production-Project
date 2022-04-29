@@ -19,7 +19,7 @@
 			<figure id = 'companyLogo_container'><img src="{{ asset('storage/images/logo.png') }}" alt=""> </figure>
 			<h2>LBU Forensic Investigators</h2>
             <p style = 'color: white; font-weight: bold;'>For marking purposes random generated code has been bypassed</p>
-            <p style = 'color: white; font-weight: bold; margin-bottom: 20px;'>username: test@test.com | password: password123</p>
+            <p style = 'color: white; font-weight: bold; margin-bottom: 20px;'>username: thomasthackeray00@gmail.com | password: password123</p>
 
             <!-- When the submit button is clicked handle the form using the login route -->
             <form method="POST" action="{{ route('login') }}">

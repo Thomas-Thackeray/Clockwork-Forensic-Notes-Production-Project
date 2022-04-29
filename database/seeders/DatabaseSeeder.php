@@ -40,6 +40,16 @@ class DatabaseSeeder extends Seeder
             'active' => '0',
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'Teacher: Marking',
+            'email' => 'thomasthackeray00@gmail.com',
+            'password' => '$2y$10$Ym4Im2WzDMqozY8RtY/L1O2qbuk8mAOz6kbQXejqw.EvBJ44b4d4a',
+            'contact_number' => '01132874448',
+            'username' => 'Teacher',
+            'company_id' => '1',
+            'user_role_id' => '1',
+            'active' => '0',
+        ]);
         
 
         // \App\Models\User::factory(10)->create();
