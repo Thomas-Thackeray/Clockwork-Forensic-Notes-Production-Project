@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'contact_number' => '01132874448',
             'username' => 'Thomas',
             'company_id' => '1',
-            'user_role_id' => '3',
+            'user_role_id' => '1',
             'active' => '0',
         ]);
 

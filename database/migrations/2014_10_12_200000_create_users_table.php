@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('previous_login_1')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('previous_login_2')->default(DB::raw('CURRENT_TIMESTAMP')); 
 
-            $table->unsignedBigInteger('user_role_id')->default('0');
+            $table->unsignedBigInteger('user_role_id')->default('1');
             $table->foreign('user_role_id')->references('id')->on('user_roles');
 
             $table->unsignedBigInteger('company_id')->default('0');
