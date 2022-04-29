@@ -12,6 +12,9 @@
 
 		<h1>Clockwork Forensic Notes - Product ID: 00001</h1>
 
+        <p>Code For Marking for teachers to mark, would normaly get sent by email</p>
+        {{Auth::user()->two_factor_code}}
+
 		<section id = 'form_wrapper'>
 
 			<figure id = 'companyLogo_container'><img src="<?php echo url('storage/storage/images/logo.png'); ?>" alt=""> </figure>
